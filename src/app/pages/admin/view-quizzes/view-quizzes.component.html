@@ -20,7 +20,7 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-raised-button color="accent">Questions</button>
+        <button mat-raised-button color="accent" [routerLink]="'/admin/view-questions/'+q.quiz_id+'/'+q.quiz_title">Questions</button>
         <button mat-stroked-button color="primary" class="ml20">Max Marks ({{q.quiz_maxMarks}})</button>
         <button mat-stroked-button color="primary" class="ml20">No Of Questions ({{q.quiz_numberOfQuestions}})</button>
         
