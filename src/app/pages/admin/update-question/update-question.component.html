@@ -1,22 +1,22 @@
 <div class="bootstrap-wrapper">
     <div class="row mt20">
         <div class="col-md-12">
-            <h1>Add Questions to <b style="color: red;"><i>{{quiz_title}}</i></b></h1>
+            <h1>Update questions of <b style="color: red;"><i>{{quiz_title}}</i></b></h1>
 
             <mat-card>
                 <mat-card-header>
                     <mat-card-subtitle>
-                        Enter the details of the new question:
+                        Update the details of the selected question:
                     </mat-card-subtitle>
                 </mat-card-header>
 
                 <mat-card-content>
-                    <form class="mt20" (submit)="formSubmit()">
+                    <form class="mt20" *ngIf="question" (submit)="updateQuestionData()">
                         <!-- content field -->
                         <mat-form-field class="w100">
-                            <mat-label>Write Question Content</mat-label>
+                            <mat-label>Update Question Content</mat-label>
                             <textarea
-                            required
+                            
                             [(ngModel)]="question.ques_content"
                             name="ques_content"
                             rows="4" matInput placeholder="Enter here"></textarea>
@@ -27,9 +27,9 @@
                             <div class="col-md-6">
                                 <!-- option 1 -->
                                 <mat-form-field class="w100">
-                                    <mat-label>Enter Option 1</mat-label>
+                                    <mat-label>Update Option 1</mat-label>
                                     <input 
-                                    required
+                                    
                                     [(ngModel)]="question.ques_option1"
                                     name="ques_option1"
                                     type="text" matInput/>
@@ -38,9 +38,9 @@
                             <div class="col-md-6">
                                 <!-- option 2 -->
                                 <mat-form-field class="w100">
-                                    <mat-label>Enter Option 2</mat-label>
+                                    <mat-label>Update Option 2</mat-label>
                                     <input
-                                    required 
+                                     
                                     [(ngModel)]="question.ques_option2"
                                     name="ques_option2"
                                     type="text" matInput/>
@@ -52,7 +52,7 @@
                             <div class="col-md-6">
                                 <!-- option 3 -->
                                 <mat-form-field class="w100">
-                                    <mat-label>Enter Option 3</mat-label>
+                                    <mat-label>Update Option 3</mat-label>
                                     <input 
                                     [(ngModel)]="question.ques_option3"
                                     name="ques_option3"
@@ -62,7 +62,7 @@
                             <div class="col-md-6">
                                 <!-- option 4 -->
                                 <mat-form-field class="w100">
-                                    <mat-label>Enter Option 4</mat-label>
+                                    <mat-label>Update Option 4</mat-label>
                                     <input 
                                     [(ngModel)]="question.ques_option4"
                                     name="ques_option4"
@@ -74,8 +74,8 @@
                         </div>
                         <!-- answer -->
                         <mat-form-field class="w100">
-                            <mat-label>Select the correct answer</mat-label>
-                            <mat-select required [(ngModel)]="question.ques_answer" name="ques_answer">
+                            <mat-label>Update the correct answer</mat-label>
+                            <mat-select [(ngModel)]="question.ques_answer" name="ques_answer">
                                 <mat-option *ngIf="question.ques_option1" [value]="question.ques_option1">{{question.ques_option1}}</mat-option>
                                 <mat-option *ngIf="question.ques_option2" [value]="question.ques_option2">{{question.ques_option2}}</mat-option>
                                 <mat-option *ngIf="question.ques_option3" [value]="question.ques_option3">{{question.ques_option3}}</mat-option>
@@ -84,7 +84,7 @@
                         </mat-form-field>
 
                         <div class="container text-center">
-                            <button mat-raised-button color="accent">Add Question</button>
+                            <button mat-raised-button color="accent" type="submit">Update Question</button>
                         </div>
                     </form>
                 </mat-card-content>

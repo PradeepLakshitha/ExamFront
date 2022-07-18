@@ -18,4 +18,18 @@ export class QuestionService {
     return this._http.post(`${baseUrl}/question/`,question);
   }
 
+  //update question
+  public updateQuestion(question:any){
+    return this._http.put(`${baseUrl}/question/`,question);
+  }
+
+  //get single question
+  public getQuestion(ques_id:any){
+    return this._http.get(`${baseUrl}/question/${ques_id}`);
+  }
+
+  //delete question
+  public deleteQuestion(ques_id:any){
+    return this._http.delete(`${baseUrl}/question/${ques_id}`);
+  }
 }
