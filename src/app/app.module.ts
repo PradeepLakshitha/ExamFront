@@ -37,6 +37,8 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 @NgModule({
   declarations: [
@@ -78,6 +80,8 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
+    CKEditorModule,
+  
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
