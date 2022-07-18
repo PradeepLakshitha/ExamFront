@@ -13,4 +13,6 @@ export class QuestionService {
     return this._http.get(`${baseUrl}/question/quiz/all/${quiz_id}`);
   }
 
+
+
 }
