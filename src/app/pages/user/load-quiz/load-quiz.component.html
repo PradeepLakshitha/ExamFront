@@ -1,0 +1,38 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <h1 class="mt10">Available Quizzes</h1>
+        <mat-paginator [length]="this.quizData.length" [pageSize]="6" [pageSizeOptions]="[6,10, 25, 100]"
+            aria-label="Select page" (page)="OnPageChange($event)">
+        </mat-paginator>
+        <div class="row mt20" *ngIf="quizData">
+            <div class="col-md-6" *ngFor="let q of pageSlice">
+
+                <mat-card class="mb20">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{q.quiz_title}}</mat-card-title>
+                        <mat-card-subtitle>{{q.category.cat_title}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="truncate">{{q.quiz_description}}</p>
+                    </mat-card-content>
+                    
+                    <mat-card-action>
+                        <button mat-flat-button color="primary">View
+                            <mat-icon aria-label="view">visibility_outlined_icon</mat-icon>
+                        </button>
+                        <button class="ml10" mat-flat-button color="accent">
+                            
+                            Start
+                            <mat-icon aria-label="start">play_circle_outline_icon</mat-icon>
+                        </button>
+                        <button class="ml10" mat-button color="primary">Questions: {{q.quiz_numberOfQuestions}}</button>
+                        <button mat-button color="warn">Max.M: {{q.quiz_maxMarks}}</button>
+                    </mat-card-action>
+                </mat-card>
+
+            </div>
+        </div>
+
+    </div>
+</div>

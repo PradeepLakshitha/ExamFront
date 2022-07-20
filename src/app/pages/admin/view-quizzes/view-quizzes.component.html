@@ -3,7 +3,8 @@
     <button routerLink="/admin/add-quiz" mat-raised-button color="accent">Add New Quiz</button>
 </div>
 
-<mat-card class="mt10" *ngFor="let q of e_Quizzes">
+
+<mat-card class="mt10" *ngFor="let q of pageSlice">
     <mat-card-header>
         <div mat-card-avatar class="quiz_header"></div>
         <mat-card-title>
@@ -37,4 +38,7 @@
     </mat-card-actions>
 
 </mat-card>
+<mat-paginator [length]="this.e_Quizzes.length" [pageSize]="3" [pageSizeOptions]="[3,10, 25, 100]"
+            aria-label="Select page" (page)="OnPageChange($event)">
+        </mat-paginator>
 

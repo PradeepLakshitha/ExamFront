@@ -38,6 +38,9 @@ import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/vi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -60,7 +63,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     UpdateQuizComponent,
     ViewQuizQuestionsComponent,
     AddQuestionComponent,
-    UpdateQuestionComponent
+    UpdateQuestionComponent,
+    SidebarUserComponent,
+    LoadQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +86,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatSlideToggleModule,
     MatSelectModule,
     CKEditorModule,
+    MatPaginatorModule,
   
   ],
   providers: [authInterceptorProviders],
