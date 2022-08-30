@@ -1,0 +1,51 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                    <mat-card-header>
+                        <!-- header -->
+                        <mat-card-title><font color="red">Read the instructions of this page carefully!</font></mat-card-title>
+                        <mat-card-subtitle>One step more to go</mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content class="ml20">
+                        <!-- content -->
+                    <h1>{{quizData.quiz_title}}</h1>
+                    <p>{{quizData.quiz_description}}</p>
+
+                        <mat-divider></mat-divider>
+                    <br/>
+                    <h1>Important Instructions</h1>
+
+                        <ul>
+                            <li>This quiz is only for practice purpose.</li>
+                            <li>You have to submit quiz within <b><font color="red">{{quizData.quiz_numberOfQuestions*2}} minutes</font></b>.</li>
+                            <li>You can attemp the quiz any number of time.</li>
+                            <li>There are <b><font color="green">{{quizData.quiz_numberOfQuestions}} questions</font></b> in this quiz.</li>
+                            <li>Each questions carries 
+                                <b><font color="red">{{quizData.quiz_maxMarks/quizData.quiz_numberOfQuestions | number}} marks</font></b>. No negative marking for incorrect answers.</li>
+                              
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <br />
+                        <h1>Attempting Quiz</h1>
+                        <ul>
+                            <li>Click <b>Start Quiz</b> button to start the quiz.</li>
+                            <li>The time will start the moment you click th Start button.</li>
+                            <li>You can't resume thisquiz, if interrupted due to any reason.</li>
+                            <li>Scroll down to move to next question.</li>
+                            <li>Click on submit button on completion of the quiz.</li>
+                            <li>Report of the quiz will atomatically generate in the form of PDF copy.</li>
+                        </ul>
+                    </mat-card-content>
+
+                    <mat-card-actions class="text-center">
+                        <!-- actions -->
+                        <button (click)="startQuiz()" class="" mat-raised-button color="primary">Start Quiz</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

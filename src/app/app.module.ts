@@ -41,6 +41,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 
 @NgModule({
@@ -65,7 +67,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AddQuestionComponent,
     UpdateQuestionComponent,
     SidebarUserComponent,
-    LoadQuizComponent
+    LoadQuizComponent,
+    InstructionsComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,

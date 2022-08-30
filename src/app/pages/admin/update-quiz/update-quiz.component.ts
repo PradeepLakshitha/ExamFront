@@ -27,7 +27,7 @@ export class UpdateQuizComponent implements OnInit {
     quiz_description: '',
     quiz_maxMarks: '',
     quiz_numberOfQuestions: '',
-    quiz_active: true,
+    quizActive: true,
     category:
     {
       cat_id: '',
@@ -70,6 +70,8 @@ export class UpdateQuizComponent implements OnInit {
     this._quiz.updateQuiz(this.quizData).subscribe(
       (data)=>{
         Swal.fire('Success !!', 'Quiz updated','success').then((e)=>{
+          console.log(this.quizData.quizActive+' PPPPPPPPPPPPPPPP');
+          
           this._router.navigate(['/admin/quizzes']);
         });
       },

@@ -18,7 +18,7 @@ export class AddQuizComponent implements OnInit {
   //     quiz_description: '',
   //     quiz_maxMarks: '',
   //     quiz_numberOfQuestions: '',
-  //     quiz_active: '',
+  //     quizActive: '',
   //     category: {
   //       cat_title: '',
   //     }
@@ -35,7 +35,7 @@ export class AddQuizComponent implements OnInit {
     quiz_description: '',
     quiz_maxMarks: '',
     quiz_numberOfQuestions: '',
-    quiz_active: true,
+    quizActive: true,
     category:
     {
       cat_id: '',
@@ -76,7 +76,7 @@ export class AddQuizComponent implements OnInit {
           quiz_description: '',
           quiz_maxMarks: '',
           quiz_numberOfQuestions: '',
-          quiz_active: true,
+          quizActive: true,
           category:
           {
             cat_id: '',

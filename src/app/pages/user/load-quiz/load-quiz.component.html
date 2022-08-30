@@ -4,7 +4,7 @@
         <mat-paginator [length]="this.quizData.length" [pageSize]="6" [pageSizeOptions]="[6,10, 25, 100]"
             aria-label="Select page" (page)="OnPageChange($event)">
         </mat-paginator>
-        <div class="row mt20" *ngIf="quizData">
+        <div class="row mt20" *ngIf="pageSlice">
             <div class="col-md-6" *ngFor="let q of pageSlice">
 
                 <mat-card class="mb20">
@@ -21,7 +21,7 @@
                         <button mat-flat-button color="primary">View
                             <mat-icon aria-label="view">visibility_outlined_icon</mat-icon>
                         </button>
-                        <button class="ml10" mat-flat-button color="accent">
+                        <button class="ml10" mat-flat-button color="accent" [routerLink]="'/user-dashboard/instructions/'+q.quiz_id">
                             
                             Start
                             <mat-icon aria-label="start">play_circle_outline_icon</mat-icon>
@@ -32,6 +32,15 @@
                 </mat-card>
 
             </div>
+
+            <div class="col-md-12" *ngIf="pageSlice.length == 0">
+                <mat-card>
+                    <mat-card-content>
+                        <h1>No data in this category</h1>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
         </div>
 
     </div>

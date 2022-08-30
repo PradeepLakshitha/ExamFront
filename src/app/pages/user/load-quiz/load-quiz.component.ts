@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-load-quiz',
@@ -9,8 +11,9 @@ import { QuizService } from 'src/app/services/quiz.service';
   styleUrls: ['./load-quiz.component.css']
 })
 export class LoadQuizComponent implements OnInit {
+  
 
-  constructor(private _route: ActivatedRoute, private _quiz: QuizService) { }
+  constructor(private _route: ActivatedRoute, private _quiz: QuizService, private _matSnak:MatSnackBar) { }
 
   // categories = [
   //   {
@@ -23,11 +26,12 @@ export class LoadQuizComponent implements OnInit {
 
   quizData = [
     {
+      quiz_id:0,
       quiz_title: '',
       quiz_description: '',
       quiz_maxMarks: '',
       quiz_numberOfQuestions: '',
-      quiz_active: true,
+      quizActive: true,
       category:
       {
         cat_id: '',
@@ -38,18 +42,40 @@ export class LoadQuizComponent implements OnInit {
   public pageSlice:any;
 
   ngOnInit(): void {
-    this.cat_Id = this._route.snapshot.params['catId'];
-    if (this.cat_Id == 0) {
+    
 
-      this._quiz.e_Quizzes().subscribe((data: any) => {
-        this.quizData = data;
-        console.log(this.quizData);
-        this.pageSlice = this.quizData.slice(0, 6);
-      });
+    this._route.params.subscribe((params)=>{
+      this.cat_Id = params['catId'];
 
-    } else {
-      console.log('load spec');
-    }
+      if (this.cat_Id == 0) {
+
+        this._quiz.getActiveQuizzes().subscribe((data: any) => {
+          this.quizData = data;
+          console.log(this.quizData);
+          this.pageSlice = this.quizData.slice(0, 6);
+        });
+  
+      } else {
+        console.log('load spec');
+        
+
+        this._quiz.getActiveQuizzesfCategory(this.cat_Id).subscribe(
+          (data:any)=>{
+            this.quizData = data;  
+            this.pageSlice = this.quizData.slice(0, 6);
+          },
+          (error)=>{
+            this._matSnak.open('Error loading quiz data from server','',{
+              duration:3000,
+            });
+          }
+        );
+
+
+      }
+    });
+
+    
   }
 
   OnPageChange(event: PageEvent) {
